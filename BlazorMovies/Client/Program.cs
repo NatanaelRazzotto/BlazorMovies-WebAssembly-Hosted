@@ -30,10 +30,15 @@ namespace BlazorMovies.Client
         {
             services.AddTransient<IRepository, RepositoryInMemory>();
 
-            //a priori
+            //Aqui vai variar do que a gente tiver trabalhando, ele não é transiente mans tambémnão 
+            //temos a terceira situação
+
+            //a priori um só
             services.AddScoped<IHTTPService, HttpService>();
-            //um para cada conjunto controller, in
+            //Para cada conjunto MVCvocêvai ter uma entrada para os serviços scoped
+            //um para cada conjunto controller, interface, implementaçção de interface de cada  entidade
             services.AddScoped<IGenreRepository, GenreRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace BlazorMovies.Client.Helpers
         }
         public async Task<HttpResponseWrapper<object>> Post<T>(string url, T data)
         {
+            //Não estamos usando o NewTonSoft apenas o .net Puro
             var dataJson = JsonSerializer.Serialize(data);
             var strigContent = new StringContent(dataJson, Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync(url, strigContent);
