@@ -1,3 +1,4 @@
+using BlazorMovies.Server.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,8 +24,15 @@ namespace BlazorMovies.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //DBContext
             services.AddDbContext<ApplicationDbContext>(options =>
-                                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            //Serviços
+            services.AddScoped<IFileStorageService, InAppStorageServices>();
+            //Nosso context é uma interface e preciso desse para poder usar
+            services.AddHttpContextAccessor();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

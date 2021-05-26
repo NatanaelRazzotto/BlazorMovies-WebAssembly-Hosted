@@ -38,6 +38,7 @@ namespace BlazorMovies.Client
             //Para cada conjunto MVCvocêvai ter uma entrada para os serviços scoped
             //um para cada conjunto controller, interface, implementaçção de interface de cada  entidade
             services.AddScoped<IGenreRepository, GenreRepository>();
+            //Criando servico
             services.AddScoped<IPersonRepository, PersonRepository>();
         }
     }

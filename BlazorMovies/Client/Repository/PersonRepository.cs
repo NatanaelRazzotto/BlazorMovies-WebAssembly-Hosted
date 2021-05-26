@@ -11,7 +11,7 @@ namespace BlazorMovies.Client.Repository
     {
         private readonly IHTTPService httpService;
         //A controller la no servidor, dizemos o caminho
-        private readonly string url = "api/person";
+        private readonly string url = "api/people";
 
         public PersonRepository(IHTTPService httpService)
         {
